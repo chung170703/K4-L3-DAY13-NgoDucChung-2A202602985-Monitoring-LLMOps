@@ -8,7 +8,7 @@
 - **MSSV:** 2A202602985
 - **Lớp:** K4-L3A
 - **Repository URL:** https://github.com/chung170703/K4-L3-DAY13-NgoDucChung-2A202602985-Monitoring-LLMOps
-- **Commit SHA cuối:**
+- **Commit SHA cuối:** `d7b0d2ad14d9c15eeaeae735968011f04e2adc6f`
 - **Challenge ID:** `day13-k4-l3a-monitoring-llmops-v1`
 - **Tên project Langfuse cá nhân:** `day13-k4-l3a-2A202602985`
 
@@ -99,7 +99,7 @@
 
 ## 9. Checklist trước khi nộp
 
-- [ ] Kết quả và evidence thuộc commit SHA cuối. *(chưa commit — xem ghi chú bên dưới)*
+- [x] Kết quả và evidence thuộc commit SHA cuối.
 - [x] Tất cả ảnh/output mở được bằng đường dẫn tương đối.
 - [x] Incident evidence nối đúng metric → log → trace.
 - [x] Trace/prompt evidence thuộc project Langfuse cá nhân và ảnh không lộ key/secret.
