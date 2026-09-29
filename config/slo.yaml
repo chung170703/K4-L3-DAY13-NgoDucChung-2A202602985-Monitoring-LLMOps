@@ -7,7 +7,18 @@ primary_slo:
     total_event: 'event == "request_received"'
   target_percent: 99.5
   error_budget_percent: 0.5
-  note: Học viên phải giải thích hoặc điều chỉnh ngưỡng bằng baseline của mình.
+  note: >
+    Giữ nguyên ngưỡng 3000ms vì khớp với threshold panel "latency" trong
+    config/dashboard.yaml, và giữ target 99.5% vì đây là dịch vụ nội bộ demo,
+    không cần SLA khắt khe hơn (99.9%+) của production thật.
+    Error budget minh hoạ trên baseline thật (data/logs.jsonl, 22 response_sent):
+    1/22 request vượt 3000ms (req "req-promoted-v2", 3344ms) => bad rate đo được
+    ~4.5%, cao hơn nhiều so với error_budget_percent=0.5% cho phép.
+    Với target 99.5% trên cửa sổ 28 ngày và traffic ước tính ~500 request/ngày
+    (~14,000 request/28 ngày), error budget tuyệt đối = 14,000 * 0.5% = 70 request
+    được phép chậm/lỗi trong cả cửa sổ. Ở quy mô lab (22 request), 1 request vượt
+    ngưỡng đã coi như "burn" một phần đáng kể error budget minh hoạ - phù hợp để
+    demo alert high_latency_p95 (docs/alerts.md#alert-1) khi tần suất vi phạm tăng.
 guardrails:
   error_rate_pct_max: 2
   daily_cost_usd_max: 2.5

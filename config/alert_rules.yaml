@@ -1,25 +1,25 @@
 alerts:
-  - name: TODO_alert_1
-    severity: TODO
-    condition: TODO
-    duration: TODO
+  - name: high_latency_p95
+    severity: critical
+    condition: latency_panel.p95 > 3000ms (dashboard panel "latency", SLO threshold)
+    duration: 5m
     type: symptom-based
-    channel: slack
-    owner: TODO
+    channel: "#day13-l3a-oncall"
+    owner: Ngo Duc Chung
     runbook: docs/alerts.md#alert-1
-  - name: TODO_alert_2
-    severity: TODO
-    condition: TODO
-    duration: TODO
+  - name: elevated_error_rate
+    severity: critical
+    condition: errors_panel.error_rate_pct > 2% (dashboard panel "errors")
+    duration: 5m
     type: symptom-based
-    channel: slack
-    owner: TODO
+    channel: "#day13-l3a-oncall"
+    owner: Ngo Duc Chung
     runbook: docs/alerts.md#alert-2
-  - name: TODO_alert_3
-    severity: TODO
-    condition: TODO
-    duration: TODO
+  - name: cost_budget_spike
+    severity: warning
+    condition: cost_panel.total_usd > 2.5 in rolling 1h window (guardrails.daily_cost_usd_max, config/slo.yaml)
+    duration: 10m
     type: symptom-based
-    channel: slack
-    owner: TODO
+    channel: "#day13-l3a-oncall"
+    owner: Ngo Duc Chung
     runbook: docs/alerts.md#alert-3

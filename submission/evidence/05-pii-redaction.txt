@@ -1,0 +1,20 @@
+{
+  "service": "api",
+  "payload": {
+    "message_preview": "What is your refund policy? My email is [REDACTED_EMAIL]"
+  },
+  "event": "request_received",
+  "feature": "qa",
+  "env": "dev",
+  "session_id": "s01",
+  "model": "claude-sonnet-4-5",
+  "user_id_hash": "2055254ee30a",
+  "correlation_id": "req-172481d8",
+  "level": "info",
+  "ts": "2026-09-29T07:41:28.192645Z"
+}
+
+--- Câu hỏi gốc gửi lên (từ data/sample_queries.jsonl), chứa PII nguyên văn ---
+{"user_id":"u01","session_id":"s01","feature":"qa","message":"What is your refund policy? My email is student@vinuni.edu.vn"}
+
+--- Sau khi qua PII scrubber (scrub_event trong logging_config.py), log lưu ra data/logs.jsonl không còn email thật ---
